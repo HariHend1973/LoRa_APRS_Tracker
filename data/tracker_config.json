@@ -1,11 +1,11 @@
 {
 	"beacons": [
 		{
-			"callsign": "CA2RXU-20",
-			"symbol": "[",
+			"callsign": "YD0BCX-1",
+			"symbol": "O",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "Lora_APRS_Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -16,14 +16,14 @@
 				"minDeltaBeacon": 20,
 				"turnMinDeg": 12,
 				"turnSlope": 60
-			}			
+			}
 		},
 		{
-			"callsign": "CA2RXU-20",
+			"callsign": "YD0BCX-1",
 			"symbol": ">",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "Lora_APRS_Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -37,11 +37,11 @@
 			}
 		},
 		{
-			"callsign": "CA2RXU-20",
+			"callsign": "YD0BCX-1",
 			"symbol": "b",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "Lora_APRS_Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -76,12 +76,13 @@
 		"disableGPS": false
 	},
 	"winlink": {
-		"password": "ABCDEF"
+		"password": "AAAAAA"
 	},
 	"bme": {
 		"active": false,
-		"sendTelemetry": false,
-		"heightCorrection": 0
+		"heightCorrection": 0,
+		"temperatureCorrection": 0.0,
+		"sendTelemetry": false
 	},
 	"notification": {
 		"ledTx": false,
