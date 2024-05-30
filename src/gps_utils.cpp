@@ -43,6 +43,11 @@ namespace GPS_Utils {
         #else
         disableGPS = Config.disableGPS;
         #endif
+        #ifdef TTGO_T_DECK_GPS
+        disableGPS = true;
+        #else
+        disableGPS = Config.disableGPS;
+        #endif
         if (disableGPS) {
             logger.log(logging::LoggerLevel::LOGGER_LEVEL_INFO, "Main", "GPS disabled");
             return;
