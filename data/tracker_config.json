@@ -1,14 +1,14 @@
 {
 	"beacons": [
 		{
-			"callsign": "NOCALL-7",
+			"callsign": "YD0BCX-7",
 			"gpsEcoMode": false,
-			"symbol": "[",
+			"symbol": "O",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "T-Deck LoRa APRS Tracker",
 			"smartBeacon": {
-				"active": true,
+				"active": false,
 				"slowRate": 120,
 				"slowSpeed": 3,
 				"fastRate": 60,
@@ -20,12 +20,12 @@
 			}			
 		},
 		{
-			"callsign": "NOCALL-7",
+			"callsign": "YD0BCX-7",
 			"gpsEcoMode": false,
 			"symbol": ">",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "T-Deck LoRa APRS Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -39,12 +39,12 @@
 			}
 		},
 		{
-			"callsign": "NOCALL-7",
+			"callsign": "YD0BCX-7",
 			"gpsEcoMode": false,
 			"symbol": "b",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "T-Deck LoRa APRS Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -66,14 +66,14 @@
     },
 	"other": {
 		"simplifiedTrackerMode": false,
-		"sendCommentAfterXBeacons": 10,
+		"sendCommentAfterXBeacons": 1,
 		"path": "WIDE1-1",
 		"nonSmartBeaconRate": 15,
 		"rememberStationTime": 30,
 		"maxDistanceToTracker": 30, 
 		"standingUpdateTime": 15,
 		"sendAltitude": true,
-		"sendBatteryInfo": false,
+		"sendBatteryInfo": true,
 		"bluetoothType": 1,
 		"bluetoothActive": true,
 		"disableGPS": false

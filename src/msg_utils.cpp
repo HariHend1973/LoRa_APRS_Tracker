@@ -240,7 +240,7 @@ namespace MSG_Utils {
     void sendMessage(const String& station, const String& textMessage) {
         String newPacket = APRSPacketLib::generateMessagePacket(currentBeacon->callsign, "APLRT1", Config.path, station, textMessage);
         #if HAS_TFT
-        cleanTFT();
+            cleanTFT();
         #endif
         if (textMessage.indexOf("ack") == 0 && station != "WLNK-1") {  // don't show Winlink ACK
             show_display("<<ACK Tx>>", "", "", 500);
@@ -256,6 +256,9 @@ namespace MSG_Utils {
             }
         }
         LoRa_Utils::sendNewPacket(newPacket);
+        #if HAS_TFT
+            cleanTFT();
+        #endif
     }
 
     const String ackRequestNumberGenerator() {
@@ -532,10 +535,17 @@ namespace MSG_Utils {
                         } else {
                             if (!Config.simplifiedTrackerMode) {
                                 lastMsgRxTime = millis();
-                                show_display("< MSG Rx >", "From --> " + lastReceivedPacket.sender, "", lastReceivedPacket.message , "", "", 3000);
+                                //show_display("< MSG Rx >", "From --> " + lastReceivedPacket.sender, "", lastReceivedPacket.message , "", "", 3000);
+                                #if HAS_TFT
+                                    cleanTFT();
+                                #endif
+                                show_display("< MSG Rx >", "From --> " + lastReceivedPacket.sender, lastReceivedPacket.message + "      ", 3000);
                                 if (lastReceivedPacket.message.indexOf("ack") != 0) {
                                     saveNewMessage(0, lastReceivedPacket.sender, lastReceivedPacket.message);
-                                }                            
+                                }
+                                #if HAS_TFT
+                                    cleanTFT();
+                                #endif                            
                             }
                         }
                     } else {
