@@ -1,8 +1,8 @@
 {
 	"beacons": [
 		{
-			"callsign": "NOCALL-7",
-			"symbol": "[",
+			"callsign": "YD0BCX-7",
+			"symbol": "O",
 			"overlay": "/",
 			"micE": "",
 			"comment": "",
@@ -19,7 +19,7 @@
 			}			
 		},
 		{
-			"callsign": "NOCALL-7",
+			"callsign": "YD0BCX-7",
 			"symbol": ">",
 			"overlay": "/",
 			"micE": "",
@@ -37,7 +37,7 @@
 			}
 		},
 		{
-			"callsign": "NOCALL-7",
+			"callsign": "YD0BCX-7",
 			"symbol": "b",
 			"overlay": "/",
 			"micE": "",
