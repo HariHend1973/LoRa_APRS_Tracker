@@ -17,7 +17,7 @@
         #define lineSpacing     12
     #endif
     #ifdef TTGO_T_DECK_GPS
-        #define bigSizeFont     4
+        #define bigSizeFont     3
         #define smallSizeFont   2
         #define lineSpacing     22
     #endif
@@ -70,7 +70,10 @@ extern logging::Logger logger;
 
 void cleanTFT() {
     #ifdef HAS_TFT
-        tft.fillScreen(TFT_BLACK);
+        tft.fillScreen(TFT_BLUE);
+	tft.drawRect(0, 0, tft.width(), tft.height(), TFT_YELLOW);
+	tft.drawLine(1, 30, tft.width() - 2, 30, TFT_YELLOW);
+	tft.fillRect(2, 2, tft.width() - 4, 28, TFT_RED);
     #endif
 }
 
@@ -93,7 +96,7 @@ void setup_display() {
             tft.setRotation(1);
         }
         tft.setTextFont(0);
-        tft.fillScreen(TFT_BLACK);
+        tft.fillScreen(TFT_BLUE);
     #else    
         #ifdef OLED_DISPLAY_HAS_RST_PIN
             pinMode(OLED_RST, OUTPUT);
@@ -168,13 +171,13 @@ void show_display(const String& header, const String& line1, const String& line2
         const String* const lines[] = {&filledLine1, &filledLine2};
         
         cleanTFT();
-        tft.setTextColor(TFT_WHITE,TFT_BLACK);
+        tft.setTextColor(TFT_YELLOW,TFT_BLUE);
         tft.setTextSize(bigSizeFont);
-        tft.setCursor(0, 0);
+        tft.setCursor(5, 4);
         tft.print(header);
         tft.setTextSize(smallSizeFont);
         for (int i = 0; i < 2; i++) {
-            tft.setCursor(0, ((lineSpacing * (2 + i)) - 2));
+            tft.setCursor(5, ((lineSpacing * (2 + i)) - 2));
             tft.print(*lines[i]);
         }
     #else
@@ -219,13 +222,13 @@ void show_display(const String& header, const String& line1, const String& line2
             cleanTFT();
         }
         //tft.setTextColor(TFT_RED,TFT_BLACK);
-        tft.setTextColor(TFT_WHITE,TFT_BLACK);
+        tft.setTextColor(TFT_YELLOW,TFT_BLUE);
         tft.setTextSize(bigSizeFont);
-        tft.setCursor(0, 0);
+        tft.setCursor(5, 4);
         tft.print(header);
         tft.setTextSize(smallSizeFont);
         for (int i = 0; i < 5; i++) {
-            tft.setCursor(0, ((lineSpacing * (2 + i)) - 2));
+            tft.setCursor(5, ((lineSpacing * (2 + i)) - 2));
             tft.print(*lines[i]);
         }
         if (menuDisplay == 0 && Config.display.showSymbol) {
@@ -251,7 +254,7 @@ void show_display(const String& header, const String& line1, const String& line2
                         tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH + (128 - TFT_WIDTH)), 0, symbolsAPRS[symbol], SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);//, TFT_RED);
                     #endif
                     #if TTGO_T_DECK_GPS
-                        tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH), 0, symbolsAPRS[symbol], SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);//, TFT_RED);
+                        tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH), 5, symbolsAPRS[symbol], SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_YELLOW);//, TFT_RED);
                     #endif
                 }
             } else if (bluetoothConnected) {    // TODO In this case, the text symbol stay displayed due to symbolAvailable false in menu_utils
@@ -259,7 +262,7 @@ void show_display(const String& header, const String& line1, const String& line2
                     tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH + (128 - TFT_WIDTH)), 0, bluetoothSymbol, SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);
                 #endif
                 #if TTGO_T_DECK_GPS
-                    tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH), 0, bluetoothSymbol, SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);
+                    tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH), 5, bluetoothSymbol, SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_YELLOW);
                 #endif
             }
         }
