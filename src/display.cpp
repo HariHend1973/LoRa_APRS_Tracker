@@ -74,6 +74,7 @@ void cleanTFT() {
 	tft.drawRect(0, 0, tft.width(), tft.height(), TFT_YELLOW);
 	tft.drawLine(1, 30, tft.width() - 2, 30, TFT_YELLOW);
 	tft.fillRect(2, 2, tft.width() - 4, 28, TFT_RED);
+	tft.setTextColor(TFT_BLUE,TFT_BLUE);
     #endif
 }
 
