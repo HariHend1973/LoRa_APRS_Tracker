@@ -494,6 +494,9 @@ namespace MSG_Utils {
                             sixthLineWR += windDegrees;
                             sixthLineWR += "deg)";
 
+                            #if HAS_TFT
+                                cleanTFT();
+                            #endif
                             show_display("<WEATHER>", "From --> " + lastReceivedPacket.sender, place, summary, fifthLineWR, sixthLineWR);
                             menuDisplay = 40;
                             menuTime = millis();
@@ -502,7 +505,7 @@ namespace MSG_Utils {
                                 lastMsgRxTime = millis();
                                 if (lastReceivedPacket.message.indexOf("ack") != 0) {
                                     saveNewMessage(0, lastReceivedPacket.sender, lastReceivedPacket.message);
-                                }                                    
+                                } 
                             } else if (winlinkStatus == 1 && ackNumberRequest == lastReceivedPacket.message.substring(lastReceivedPacket.message.indexOf("ack") + 3)) {
                                 logger.log(logging::LoggerLevel::LOGGER_LEVEL_DEBUG, "Winlink","---> Waiting Challenge");
                                 lastMsgRxTime = millis();
