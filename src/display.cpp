@@ -71,10 +71,11 @@ extern logging::Logger logger;
 void cleanTFT() {
     #ifdef HAS_TFT
         tft.fillScreen(TFT_BLUE);
+	//tft.fillRect(0, 0, tft.width(), tft.height(), TFT_BLUE);
 	tft.drawRect(0, 0, tft.width(), tft.height(), TFT_YELLOW);
 	tft.drawLine(1, 30, tft.width() - 2, 30, TFT_YELLOW);
 	tft.fillRect(2, 2, tft.width() - 4, 28, TFT_RED);
-	tft.setTextColor(TFT_BLUE,TFT_BLUE);
+	tft.setCursor(5, 4);
     #endif
 }
 
