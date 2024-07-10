@@ -356,22 +356,34 @@ namespace KEYBOARD_Utils {
             menuDisplay = 12;
         } else if (menuDisplay == 130) {
             if (keyDetected) {
-                menuDisplay = 1300;
-            } else {
-                show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from LoRa Tracker 73!", "", "", 2000);
-                MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from LoRa Tracker 73!");
+            #ifdef HAS_TFT
+                cleanTFT();
+            #endif	
+            //    menuDisplay = 1300;
+            //} else {
+                show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from YD0BCX T-Deck LoRa Tracker 73!", "", "", 2000);
+                MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from YD0BCX T-Deck LoRa Tracker 73!");
             }
         } else if (menuDisplay == 131) {
             if (keyDetected) {
-                menuDisplay = 1310;
-            } else {
-                show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from LoRa Tracker 73!", "", "", 2000);
-                MSG_Utils::addToOutputBuffer(0, "APRSPH" , "HOTG Happy #APRSThursday from LoRa Tracker 73!");
+            #ifdef HAS_TFT
+                cleanTFT();
+            #endif
+            //    menuDisplay = 1310;
+            //} else {
+                show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from YD0BCX T-Deck LoRa Tracker 73!", "", "", 2000);
+                MSG_Utils::addToOutputBuffer(0, "APRSPH" , "HOTG Happy #APRSThursday from YD0BCX T-Deck LoRa Tracker 73!");
             }
         } else if (menuDisplay == 132) {
+            #ifdef HAS_TFT
+                cleanTFT();
+            #endif
             show_display(" APRS Thu.", "", "   Unsubscribe", "   from APRS Thursday", "", "", 2000);
             MSG_Utils::addToOutputBuffer(0, "ANSRVR", "U HOTG");
         } else if (menuDisplay == 133) {
+            #ifdef HAS_TFT
+                cleanTFT();
+            #endif
             show_display(" APRS Thu.", "", "  Keep Subscribed" ,"  for 12hours more", "", "", 2000);
             MSG_Utils::addToOutputBuffer(0, "ANSRVR", "K HOTG");
         }
