@@ -81,6 +81,14 @@ namespace MENU_Utils {
         }
     }
 
+    String fillStringLength(const String& line, uint8_t length) {
+        String outputLine = line;
+        for (int a = line.length(); a < length; a++) {
+            outputLine += " ";
+        }
+        return outputLine;
+    }
+
     void showOnScreen() {
         String lastLine, firstLineDecoder, courseSpeedAltitude, speedPacketDec, coursePacketDec, pathDec;
         uint32_t lastMenuTime = millis() - menuTime;
@@ -667,6 +675,7 @@ namespace MENU_Utils {
                     sixthRowMainMenu = "No Battery Connected" ;
                 }
                 show_display(firstRowMainMenu,
+                    show_display(firstRowMainMenu,
                                 secondRowMainMenu,
                                 thirdRowMainMenu,
                                 fourthRowMainMenu,

@@ -494,7 +494,7 @@ namespace MSG_Utils {
                             #if HAS_TFT
                                 cleanTFT();
                             #endif
-                            show_display("<WEATHER>", "From --> " + lastReceivedPacket.sender + "              ", place + "              ", summary + "              ", fifthLineWR + "              ", sixthLineWR + "              ");
+                            show_display("<WEATHER>", "From --> " + lastReceivedPacket.sender, place, summary, fifthLineWR, sixthLineWR);
                             menuDisplay = 40;
                             menuTime = millis();
                         } else if (lastReceivedPacket.sender == "WLNK-1") {
