@@ -81,14 +81,6 @@ namespace MENU_Utils {
         }
     }
 
-    String fillStringLength(const String& line, uint8_t length) {
-        String outputLine = line;
-        for (int a = line.length(); a < length; a++) {
-            outputLine += " ";
-        }
-        return outputLine;
-    }
-
     void showOnScreen() {
         String lastLine, firstLineDecoder, courseSpeedAltitude, speedPacketDec, coursePacketDec, pathDec;
         uint32_t lastMenuTime = millis() - menuTime;
@@ -129,8 +121,15 @@ namespace MENU_Utils {
             case 100:   // 1.Messages ---> Messages Read ---> Display Received/Saved APRS Messages
                 {
                     String msgSender    = loadedAPRSMessages[messagesIterator].substring(0, loadedAPRSMessages[messagesIterator].indexOf(","));
-                    String msgText      = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1);
-                    show_display("MSG_APRS>", "From --> " + msgSender, msgText, "", "", "           Next=Down");
+                    #ifdef HAS_TFT
+                        String msgText1  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1, 36);
+                        String msgText2  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 27, 62);
+                        String msgText3  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 52, 87);
+                        show_display("MSG_APRS>", "From --> " + msgSender, msgText1, msgText2, msgText3, "           Next=Down");
+                    #else
+                        String msgText   = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1);
+                        show_display("MSG_APRS>", "From --> " + msgSender, msgText, "", "", "           Next=Down");
+                    #endif
                 }
                 break;
             case 11:    // 1.Messages ---> Messages Write
@@ -610,7 +609,11 @@ namespace MENU_Utils {
                 } else {
                     fifthRowMainMenu = "LAST Rx = ";
                     fifthRowMainMenu += MSG_Utils::getLastHeardTracker();
+<<<<<<< HEAD
                 }
+=======
+                } 
+>>>>>>> 3846883 (long texts workaround on MSG_APRS)
 
                 #ifdef HAS_TFT
                     for (int z = fifthRowMainMenu.length(); z < 22; z++) {
@@ -674,7 +677,6 @@ namespace MENU_Utils {
                 } else {
                     sixthRowMainMenu = "No Battery Connected" ;
                 }
-                show_display(firstRowMainMenu,
                     show_display(firstRowMainMenu,
                                 secondRowMainMenu,
                                 thirdRowMainMenu,
