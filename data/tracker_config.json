@@ -3,7 +3,7 @@
 		{
 			"callsign": "YD0BCX-7",
 			"gpsEcoMode": false,
-			"symbol": "O",
+			"symbol": "p",
 			"overlay": "/",
 			"micE": "",
 			"comment": "T-Deck LoRa APRS Tracker",
