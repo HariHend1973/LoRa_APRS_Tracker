@@ -14,7 +14,11 @@
     #ifdef HELTEC_WIRELESS_TRACKER
         #define bigSizeFont     2
         #define smallSizeFont   1
+<<<<<<< HEAD
         #define lineSpacing     12
+=======
+        #define lineSpacing    12 
+>>>>>>> 3846883 (long texts workaround on MSG_APRS)
     #endif
     #ifdef TTGO_T_DECK_GPS
         #define bigSizeFont     3
@@ -168,10 +172,19 @@ void display_toggle(bool toggle) {
 
 void show_display(const String& header, const String& line1, const String& line2, int wait) {
     #ifdef HAS_TFT
+<<<<<<< HEAD
         String filledLine1 = fillStringLength(line1, 22);
         String filledLine2 = fillStringLength(line2, 22);
         const String* const lines[] = {&filledLine1, &filledLine2};
         
+=======
+        //String filledLine1 = fillStringLength(line1, 22);
+        //String filledLine2 = fillStringLength(line2, 22);
+        String filledLine1 = (line1.length()  < 22) ? fillStringLength(line1, 22) : line1;
+        String filledLine2 = (line2.length()  < 22) ? fillStringLength(line2, 22) : line2;
+        const String* const lines[] = {&filledLine1, &filledLine2};
+
+>>>>>>> 3846883 (long texts workaround on MSG_APRS)
         cleanTFT();
         tft.setTextColor(TFT_YELLOW,TFT_BLUE);
         tft.setTextSize(bigSizeFont);
@@ -212,11 +225,24 @@ void show_display(const String& header, const String& line1, const String& line2
 
 void show_display(const String& header, const String& line1, const String& line2, const String& line3, const String& line4, const String& line5, int wait) {
     #ifdef HAS_TFT
+<<<<<<< HEAD
         String filledLine1 = fillStringLength(line1, 22);
         String filledLine2 = fillStringLength(line2, 22);
         String filledLine3 = fillStringLength(line3, 22);
         String filledLine4 = fillStringLength(line4, 22);
         String filledLine5 = fillStringLength(line5, 22);
+=======
+        //String filledLine1 = fillStringLength(line1, 22);
+        //String filledLine2 = fillStringLength(line2, 22);
+        //String filledLine3 = fillStringLength(line3, 22);
+        //String filledLine4 = fillStringLength(line4, 22);
+        //String filledLine5 = fillStringLength(line5, 22);
+        String filledLine1 = (line1.length()  < 22) ? fillStringLength(line1, 22) : line1;
+        String filledLine2 = (line2.length()  < 22) ? fillStringLength(line2, 22) : line2;
+        String filledLine3 = (line3.length()  < 22) ? fillStringLength(line3, 22) : line3;
+        String filledLine4 = (line4.length()  < 22) ? fillStringLength(line4, 22) : line4;
+        String filledLine5 = (line5.length()  < 22) ? fillStringLength(line5, 22) : line5;	
+>>>>>>> 3846883 (long texts workaround on MSG_APRS)
         const String* const lines[] = {&filledLine1, &filledLine2, &filledLine3, &filledLine4, &filledLine5};
 
         if (menuDisplay != lastMenuDisplay) {
@@ -332,7 +358,11 @@ void startupScreen(uint8_t index, const String& version) {
         case 1: workingFreq += "PL]"; break;
         case 2: workingFreq += "UK]"; break;
     }
+<<<<<<< HEAD
     show_display(" LoRa APRS", "      (TRACKER)", workingFreq, "", "", "  CA2RXU  " + version, 4000);
+=======
+    show_display("____LoRa APRS____", "        (TRACKER)", "  " + workingFreq, "", "   Richonguzman / CA2RXU", "         " + version, 4000);
+>>>>>>> 3846883 (long texts workaround on MSG_APRS)
     #ifdef HAS_TFT
         cleanTFT();
     #endif
