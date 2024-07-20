@@ -121,8 +121,15 @@ namespace MENU_Utils {
             case 100:   // 1.Messages ---> Messages Read ---> Display Received/Saved APRS Messages
                 {
                     String msgSender    = loadedAPRSMessages[messagesIterator].substring(0, loadedAPRSMessages[messagesIterator].indexOf(","));
-                    String msgText      = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1);
-                    show_display("MSG_APRS>", "From --> " + msgSender, msgText, "", "", "           Next=Down");
+                    #ifdef HAS_TFT
+                        String msgText1  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1, 35);
+                        String msgText2  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 27, 61);
+                        String msgText3  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 53, 85);
+                        show_display("MSG_APRS>", "From --> " + msgSender, msgText1, msgText2, msgText3, "         Next=Down");
+                    #else
+                        String msgText   = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1);
+                        show_display("MSG_APRS>", "From --> " + msgSender, msgText, "", "", "         Next=Down");
+                    #endif
                 }
                 break;
             case 11:    // 1.Messages ---> Messages Write

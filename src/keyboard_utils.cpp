@@ -358,15 +358,37 @@ namespace KEYBOARD_Utils {
             if (keyDetected) {
                 menuDisplay = 1300;
             } else {
-                show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from LoRa Tracker 73!", "", "", 2000);
-                MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from LoRa Tracker 73!");
+                //show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from YD0BCX Heltec Wireless Tracker 73!", "", "", 2000);
+                //MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from YD0BCX Heltect Woreless Tracker 73!");
+                #ifdef HAS_TFT
+                    String msgText  = "Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!";
+                    String msgText1 = msgText.substring(1, 26);
+                    String msgText2 = msgText.substring(27, 53);
+                    String msgText3 = msgText.substring(54, 80);
+                    show_display(" APRS Thu.", "Sending:", msgText1, msgText2, msgText3, "", 4000);
+                    MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!");
+                #else
+                    show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from YD0BCX Heltec Wireless Tracker 73!", "", "", 2000);
+                    MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!");
+                #endif
             }
         } else if (menuDisplay == 131) {
             if (keyDetected) {
                 menuDisplay = 1310;
             } else {
-                show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from LoRa Tracker 73!", "", "", 2000);
-                MSG_Utils::addToOutputBuffer(0, "APRSPH" , "HOTG Happy #APRSThursday from LoRa Tracker 73!");
+                //show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from YD0BCX Heltec Wireless Tracker 73!", "", "", 2000);
+                //MSG_Utils::addToOutputBuffer(0, "APRSPH" , "HOTG Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!");
+                #ifdef HAS_TFT
+                    String msgText  = "Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!";
+                    String msgText1 = msgText.substring(1, 26);
+                    String msgText2 = msgText.substring(27, 53);
+                    String msgText3 = msgText.substring(54, 80);
+                    show_display(" APRS Thu.", "Sending:", msgText1, msgText2, msgText3, "", 4000);
+                    MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!");
+                #else
+                    show_display(" APRS Thu.", "Sending:", "Happy #APRSThursday", "from YD0BCX Heltec Wireless Tracker 73!", "", "", 2000);
+                    MSG_Utils::addToOutputBuffer(0, "ANSRVR", "CQ HOTG Happy #APRSThursday from YD0BCX Heltec Wireless Tracker 73!");
+                #endif
             }
         } else if (menuDisplay == 132) {
             show_display(" APRS Thu.", "", "   Unsubscribe", "   from APRS Thursday", "", "", 2000);
