@@ -93,6 +93,7 @@ void setup_display() {
             tft.setRotation(1);
         }
         tft.setTextFont(0);
+        tft.setTextColor(TFT_GREEN);
         tft.fillScreen(TFT_BLACK);
     #else    
         #ifdef OLED_DISPLAY_HAS_RST_PIN
@@ -171,6 +172,7 @@ void show_display(const String& header, const String& line1, const String& line2
         tft.setTextColor(TFT_WHITE,TFT_BLACK);
         tft.setTextSize(bigSizeFont);
         tft.setCursor(0, 0);
+        tft.setTextColor(TFT_GREEN);
         tft.print(header);
         tft.setTextSize(smallSizeFont);
         for (int i = 0; i < 2; i++) {
@@ -222,6 +224,7 @@ void show_display(const String& header, const String& line1, const String& line2
         tft.setTextColor(TFT_WHITE,TFT_BLACK);
         tft.setTextSize(bigSizeFont);
         tft.setCursor(0, 0);
+        tft.setTextColor(TFT_GREEN);
         tft.print(header);
         tft.setTextSize(smallSizeFont);
         for (int i = 0; i < 5; i++) {
@@ -248,7 +251,7 @@ void show_display(const String& header, const String& line1, const String& line2
             if (!bluetoothConnected || time_now % 10 < 5) {
                 if (symbolAvailable) {
                     #if HELTEC_WIRELESS_TRACKER
-                        tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH + (128 - TFT_WIDTH)), 0, symbolsAPRS[symbol], SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);//, TFT_RED);
+                        tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH + (128 - TFT_WIDTH)), 0, symbolsAPRS[symbol], SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_GREEN);//, TFT_RED);
                     #endif
                     #if TTGO_T_DECK_GPS
                         tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH), 0, symbolsAPRS[symbol], SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);//, TFT_RED);
@@ -256,7 +259,7 @@ void show_display(const String& header, const String& line1, const String& line2
                 }
             } else if (bluetoothConnected) {    // TODO In this case, the text symbol stay displayed due to symbolAvailable false in menu_utils
                 #if HELTEC_WIRELESS_TRACKER
-                    tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH + (128 - TFT_WIDTH)), 0, bluetoothSymbol, SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);
+                    tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH + (128 - TFT_WIDTH)), 0, bluetoothSymbol, SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_GREEN);
                 #endif
                 #if TTGO_T_DECK_GPS
                     tft.drawBitmap((TFT_WIDTH - SYMBOL_WIDTH), 0, bluetoothSymbol, SYMBOL_WIDTH, SYMBOL_HEIGHT, TFT_WHITE);
