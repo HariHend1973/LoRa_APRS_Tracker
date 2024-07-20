@@ -256,6 +256,9 @@ namespace MSG_Utils {
             }
         }
         LoRa_Utils::sendNewPacket(newPacket);
+        #if HAS_TFT
+            cleanTFT();
+        #endif
     }
 
     const String ackRequestNumberGenerator() {
@@ -491,6 +494,9 @@ namespace MSG_Utils {
                             sixthLineWR += windDegrees;
                             sixthLineWR += "deg)";
 
+                            #if HAS_TFT
+                                cleanTFT();
+                            #endif
                             show_display("<WEATHER>", "From --> " + lastReceivedPacket.sender, place, summary, fifthLineWR, sixthLineWR);
                             menuDisplay = 40;
                             menuTime = millis();
@@ -535,10 +541,17 @@ namespace MSG_Utils {
                         } else {
                             if (!Config.simplifiedTrackerMode) {
                                 lastMsgRxTime = millis();
-                                show_display("< MSG Rx >", "From --> " + lastReceivedPacket.sender, "", lastReceivedPacket.message , "", "", 3000);
+                                //show_display("< MSG Rx >", "From --> " + lastReceivedPacket.sender, "", lastReceivedPacket.message , "", "", 3000);
+                                #if HAS_TFT
+                                    cleanTFT();
+                                #endif
+                                show_display("< MSG Rx >", "From --> " + lastReceivedPacket.sender, lastReceivedPacket.message + "      ", 3000);
                                 if (lastReceivedPacket.message.indexOf("ack") != 0) {
                                     saveNewMessage(0, lastReceivedPacket.sender, lastReceivedPacket.message);
-                                }                            
+                                }
+                                #if HAS_TFT
+                                    cleanTFT();
+                                #endif
                             }
                         }
                     } else {

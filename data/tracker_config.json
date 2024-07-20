@@ -6,9 +6,9 @@
 			"symbol": "[",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "Heltec WT Lora APRS Tracker",
 			"smartBeacon": {
-				"active": true,
+				"active": false,
 				"slowRate": 120,
 				"slowSpeed": 3,
 				"fastRate": 60,
@@ -25,7 +25,7 @@
 			"symbol": ">",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "Heltec WT Lora APRS Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -44,7 +44,7 @@
 			"symbol": "b",
 			"overlay": "/",
 			"micE": "",
-			"comment": "",
+			"comment": "Heltec WT Lora APRS Tracker",
 			"smartBeacon": {
 				"active": true,
 				"slowRate": 120,
@@ -66,9 +66,9 @@
     },
 	"other": {
 		"simplifiedTrackerMode": false,
-		"sendCommentAfterXBeacons": 10,
+		"sendCommentAfterXBeacons": 1,
 		"path": "WIDE1-1",
-		"nonSmartBeaconRate": 15,
+		"nonSmartBeaconRate": 10,
 		"rememberStationTime": 30,
 		"maxDistanceToTracker": 30, 
 		"standingUpdateTime": 15,
