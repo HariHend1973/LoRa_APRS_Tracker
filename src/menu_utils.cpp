@@ -122,13 +122,13 @@ namespace MENU_Utils {
                 {
                     String msgSender    = loadedAPRSMessages[messagesIterator].substring(0, loadedAPRSMessages[messagesIterator].indexOf(","));
                     #ifdef HAS_TFT
-                        String msgText1  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1, 36);
-                        String msgText2  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 27, 62);
-                        String msgText3  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 52, 87);
-                        show_display("MSG_APRS>", "From --> " + msgSender, msgText1, msgText2, msgText3, "           Next=Down");
+                        String msgText1  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1, 35);
+                        String msgText2  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 27, 61);
+                        String msgText3  = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 53, 85);
+                        show_display("MSG_APRS>", "From --> " + msgSender, msgText1, msgText2, msgText3, "         Next=Down");
                     #else
                         String msgText   = loadedAPRSMessages[messagesIterator].substring(loadedAPRSMessages[messagesIterator].indexOf(",") + 1);
-                        show_display("MSG_APRS>", "From --> " + msgSender, msgText, "", "", "           Next=Down");
+                        show_display("MSG_APRS>", "From --> " + msgSender, msgText, "", "", "         Next=Down");
                     #endif
                 }
                 break;
@@ -609,11 +609,7 @@ namespace MENU_Utils {
                 } else {
                     fifthRowMainMenu = "LAST Rx = ";
                     fifthRowMainMenu += MSG_Utils::getLastHeardTracker();
-<<<<<<< HEAD
-                }
-=======
                 } 
->>>>>>> 3846883 (long texts workaround on MSG_APRS)
 
                 #ifdef HAS_TFT
                     for (int z = fifthRowMainMenu.length(); z < 22; z++) {

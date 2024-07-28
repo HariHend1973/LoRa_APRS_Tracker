@@ -46,11 +46,7 @@ TinyGPSPlus                         gps;
     OneButton userButton            = OneButton(BUTTON_PIN, true, true);
 #endif
 
-<<<<<<< HEAD
 String      versionDate             = "2024.08.02";
-=======
-String      versionDate             = "2024.07.14";
->>>>>>> b65bcf7 (new symbols dog missing)
 
 uint8_t     myBeaconsIndex          = 0;
 int         myBeaconsSize           = Config.beacons.size();
