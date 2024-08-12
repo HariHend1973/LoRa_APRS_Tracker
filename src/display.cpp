@@ -164,8 +164,8 @@ void display_toggle(bool toggle) {
 
 void show_display(const String& header, const String& line1, const String& line2, int wait) {
     #ifdef HAS_TFT
-        String filledLine1 = fillStringLength(line1, 22);
-        String filledLine2 = fillStringLength(line2, 22);
+        String filledLine1 = fillStringLength(line1, 34);
+        String filledLine2 = fillStringLength(line2, 34);
         const String* const lines[] = {&filledLine1, &filledLine2};
         
         cleanTFT();
@@ -209,11 +209,11 @@ void show_display(const String& header, const String& line1, const String& line2
 
 void show_display(const String& header, const String& line1, const String& line2, const String& line3, const String& line4, const String& line5, int wait) {
     #ifdef HAS_TFT
-        String filledLine1 = fillStringLength(line1, 22);
-        String filledLine2 = fillStringLength(line2, 22);
-        String filledLine3 = fillStringLength(line3, 22);
-        String filledLine4 = fillStringLength(line4, 22);
-        String filledLine5 = fillStringLength(line5, 22);
+        String filledLine1 = fillStringLength(line1, 34);
+        String filledLine2 = fillStringLength(line2, 34);
+        String filledLine3 = fillStringLength(line3, 34);
+        String filledLine4 = fillStringLength(line4, 34);
+        String filledLine5 = fillStringLength(line5, 34);
         const String* const lines[] = {&filledLine1, &filledLine2, &filledLine3, &filledLine4, &filledLine5};
 
         if (menuDisplay != lastMenuDisplay) {
